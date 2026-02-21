@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jordan Stewart</title>
+  <meta name="description" content="Jordan Stewart - IT Engineer at Aerostar. Blog, projects, and CV.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: #1a1a2e; color: #e8e8e8; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fafafa;
+      color: #1a1a2e;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes lineGrow {
+      from { width: 0; }
+      to { width: 48px; }
+    }
+    .container { max-width: 820px; margin: 0 auto; padding: 48px 24px 64px; }
+    .header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 24px; animation: fadeUp 0.6s ease both;
+    }
+    .header-left { cursor: pointer; }
+    .name { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; }
+    .subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; font-weight: 400; color: #888;
+      letter-spacing: 0.5px; margin-top: 6px;
+    }
+    .nav { display: flex; gap: 24px; flex-wrap: wrap; }
+    .nav-link {
+      cursor: pointer; border: none; background: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 8px 0; color: #999; transition: color 0.3s; position: relative;
+    }
+    .nav-link:hover { color: #1a1a2e; }
+    .nav-link.active { color: #1a1a2e; font-weight: 500; }
+    .nav-link.active::after {
+      content: ''; position: absolute; bottom: 2px; left: 0;
+      height: 1px; background: #1a1a2e; animation: lineGrow 0.4s ease forwards;
+    }
+    .divider { height: 1px; background: #e8e8e8; margin: 24px 0 40px; }
+    .content { animation: fadeUp 0.6s ease 0.15s both; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: 2px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .body-text { font-size: 15px; line-height: 1.7; color: #444; }
+    .body-text + .body-text { margin-top: 16px; }
+    .body-bold { font-size: 15px; line-height: 1.7; color: #1a1a2e; font-weight: 500; }
+    .card {
+      background: #fff; border: 1px solid #eee; border-radius: 2px;
+      padding: 28px 32px; transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { border-color: #ccc; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+    .card + .card { margin-top: 16px; }
+    .two-col { display: flex; gap: 64px; flex-wrap: wrap; }
+    .main-col { flex: 1 1 400px; min-width: 280px; }
+    .side-col { flex: 0 0 220px; min-width: 200px; }
+    .skill-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; color: #555; padding: 6px 0; border-bottom: 1px solid #f5f5f5;
+    }
+    .exp-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 8px; margin-bottom: 8px;
+    }
+    .exp-role { font-size: 16px; font-weight: 600; }
+    .exp-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: #999; letter-spacing: 0.5px;
+    }
+    .exp-company {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; color: #888; letter-spacing: 0.3px;
+    }
+    .exp-details { font-size: 14px; line-height: 1.7; color: #444; margin-top: 12px; }
+    .subsection { margin-top: 40px; }
+    .about-grid { display: flex; gap: 48px; flex-wrap: wrap; }
+    .about-main { flex: 1 1 420px; min-width: 280px; }
+    .about-side { flex: 0 0 240px; min-width: 220px; }
+    .contact-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #aaa; margin-bottom: 4px;
+    }
+    .contact-value { font-size: 15px; font-weight: 500; }
+    .footer {
+      margin-top: 80px; padding-top: 24px; border-top: 1px solid #e8e8e8;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .footer-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: #bbb; letter-spacing: 0.5px;
+    }
+    .footer-dot { color: #ddd; font-size: 10px; }
+    .stagger-1 { animation: fadeUp 0.5s ease 0s both; }
+    .stagger-2 { animation: fadeUp 0.5s ease 0.1s both; }
+    .stagger-3 { animation: fadeUp 0.5s ease 0.2s both; }
+    .stagger-4 { animation: fadeUp 0.5s ease 0.3s both; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-left" id="js-header-home">
+        <h1 class="name">Jordan Stewart</h1>
+        <p class="subtitle">IT Engineer &mdash; Aerostar</p>
+      </div>
+      <nav class="nav" id="js-nav">
+        <button class="nav-link active" data-page="page-home">Home</button>
+        <button class="nav-link" data-page="page-cv">CV</button>
+        <button class="nav-link" data-page="page-projects">Projects</button>
+        <button class="nav-link" data-page="page-about">About</button>
+      </nav>
+    </header>
+    <div class="divider"></div>
+    <main class="content">
+
+      <section id="page-home" class="page active">
+        <p class="section-label">Latest Posts</p>
+        <p class="body-text" style="color:#999; font-style:italic;">Nothing here yet &mdash; check back soon.</p>
+      </section>
+
+      <section id="page-cv" class="page">
+        <div class="two-col">
+          <div class="main-col">
+            <p class="section-label">Profile</p>
+            <p class="body-text">
+              IT and infrastructure engineer with over 10 years of experience spanning
+              higher education, biotherapeutics, and aerospace and defense. Specializes in
+              designing and implementing secure, resilient infrastructure with a focus on
+              identity management, cloud platforms, and regulatory compliance.
+            </p>
+            <div class="subsection">
+              <p class="section-label">Experience</p>
+              <div class="card stagger-1">
+                <div class="exp-header">
+                  <span class="exp-role">IT Engineer</span>
+                  <span class="exp-period">Oct 2022 &mdash; Present</span>
+                </div>
+                <p class="exp-company">Aerostar International, Inc. &middot; Sioux Falls, SD</p>
+                <p class="exp-details">Design and implement infrastructure supporting company mission and strategic initiatives. Lead identity, access management, and governance programs. Engineer and manage M365 cloud products and secure Windows virtual infrastructure. Implement and maintain CMMC-certified systems and classified computing environments.</p>
+              </div>
+              <div class="card stagger-2">
+                <div class="exp-header">
+                  <span class="exp-role">IT Specialist III</span>
+                  <span class="exp-period">Mar 2022 &mdash; Aug 2022</span>
+                </div>
+                <p class="exp-company">SAb Biotherapeutics &middot; Sioux Falls, SD</p>
+                <p class="exp-details">Engineered and managed IT infrastructure within an ISO 7 compliant cleanroom environment. Led transition from managed service provider to fully in-house IT support. Ensured compliance with FDA 21 CFR Part 11 requirements for electronic records and signatures.</p>
+              </div>
+              <div class="card stagger-3">
+                <div class="exp-header">
+                  <span class="exp-role">LMS &amp; Cloud Systems Administrator</span>
+                  <span class="exp-period">Oct 2019 &mdash; Mar 2022</span>
+                </div>
+                <p class="exp-company">Dakota State University &middot; Madison, SD</p>
+                <p class="exp-details">Administered cloud-based learning management systems and enterprise cloud products. Sole administrator for ITSM platform implementation and operations. Facilitated technology trainings for faculty and staff. Managed two direct reports.</p>
+              </div>
+              <div class="card stagger-4">
+                <div class="exp-header">
+                  <span class="exp-role">Sr. Computer Support Specialist</span>
+                  <span class="exp-period">Aug 2015 &mdash; Oct 2019</span>
+                </div>
+                <p class="exp-company">Dakota State University &middot; Madison, SD</p>
+                <p class="exp-details">Lead technical support for the entire campus community. Diagnosed and resolved complex hardware, software, and network issues across a diverse technology environment. Supported enterprise IT systems and contributed to infrastructure improvement initiatives.</p>
+              </div>
+            </div>
+            <div class="subsection">
+              <p class="section-label">Education</p>
+              <div>
+                <span class="body-bold">B.S. Computer and Network Security</span>
+                <span class="body-text"> &mdash; Dakota State University, 2015</span>
+              </div>
+            </div>
+          </div>
+          <div class="side-col">
+            <p class="section-label">Core Competencies</p>
+            <div class="skill-item">Infrastructure Design &amp; Implementation</div>
+            <div class="skill-item">Identity &amp; Access Management</div>
+            <div class="skill-item">Microsoft 365 Administration</div>
+            <div class="skill-item">Windows Server &amp; Virtual Infrastructure</div>
+            <div class="skill-item">CMMC Compliance</div>
+            <div class="skill-item">Classified Systems</div>
+            <div class="skill-item">FDA 21 CFR Part 11</div>
+            <div class="skill-item">ISO 7 Environments</div>
+            <div class="skill-item">ITSM Implementation</div>
+            <div class="skill-item">Cloud Systems Administration</div>
+            <div class="skill-item">IT Service Delivery</div>
+            <div class="skill-item">Team Leadership</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-projects" class="page">
+        <p class="section-label">Selected Projects</p>
+        <p class="body-text" style="color:#999; font-style:italic;">Coming soon.</p>
+      </section>
+
+      <section id="page-about" class="page">
+        <div class="about-grid">
+          <div class="about-main">
+            <p class="section-label">About Me</p>
+            <p class="body-text">
+              I'm Jordan &mdash; an IT engineer at Aerostar, where I design and build
+              the infrastructure that keeps things running in the aerospace and
+              defense space. My work focuses on identity management, cloud platforms,
+              and making sure our systems meet the compliance standards that come
+              with the territory &mdash; CMMC, classified environments, and the like.
+            </p>
+            <p class="body-text">
+              Before Aerostar, I worked in biotherapeutics at SAb Biotherapeutics,
+              managing infrastructure in ISO 7 cleanroom environments and navigating
+              FDA compliance. And before that, I spent nearly seven years at Dakota
+              State University &mdash; starting in tech support and working my way up to
+              managing cloud systems and leading a team.
+            </p>
+            <p class="body-text">
+              I studied Computer and Network Security at Dakota State, which gave me
+              a solid foundation in the security-first mindset I bring to everything
+              I build. I'm based in Sioux Falls, South Dakota.
+            </p>
+            <div class="subsection">
+              <p class="section-label">Get in Touch</p>
+              <div class="card" style="margin-bottom:12px;">
+                <p class="contact-label">Email</p>
+                <p class="contact-value">jtstewart (at) pm.me</p>
+              </div>
+              <div class="card">
+                <p class="contact-label">LinkedIn</p>
+                <p class="contact-value">linkedin.com/in/jordan-stewart-40386b96</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-side">
+            <p class="section-label">Colophon</p>
+            <p class="body-text" style="font-size:13px;">
+              This site is a single HTML file hosted on GitHub Pages.
+              Typeset in DM Sans and JetBrains Mono. No frameworks, no build step, no tracking.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer class="footer">
+      <span class="footer-text">&copy; 2026 Jordan Stewart</span>
+      <span class="footer-dot">&middot;</span>
+      <span class="footer-text">jtstewart.xyz</span>
+    </footer>
+  </div>
+  <script>
+    (function() {
+      var nav = document.getElementById('js-nav');
+      var pages = document.querySelectorAll('.page');
+      var links = document.querySelectorAll('.nav-link');
+
+      function show(id) {
+        for (var i = 0; i < pages.length; i++) {
+          pages[i].className = pages[i].id === id ? 'page active' : 'page';
+        }
+        for (var j = 0; j < links.length; j++) {
+          links[j].className = links[j].getAttribute('data-page') === id ? 'nav-link active' : 'nav-link';
+        }
+      }
+
+      nav.addEventListener('click', function(e) {
+        var btn = e.target;
+        if (btn.getAttribute('data-page')) {
+          show(btn.getAttribute('data-page'));
+        }
+      });
+
+      document.getElementById('js-header-home').addEventListener('click', function() {
+        show('page-home');
+      });
+    })();
+  </script>
+</body>
+</html>
