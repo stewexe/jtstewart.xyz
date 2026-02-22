@@ -110,12 +110,12 @@
     .body-text { font-size: 15px; line-height: 1.7; color: var(--text-mid); }
     .body-text + .body-text { margin-top: 16px; }
     .body-bold { font-size: 15px; line-height: 1.7; color: var(--text); font-weight: 500; }
-    .card {
+    .card, .post-card {
       background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 2px;
       padding: 28px 32px; transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
     }
-    .card:hover { border-color: var(--card-border-hover); box-shadow: 0 2px 12px var(--card-shadow); }
-    .card + .card { margin-top: 16px; }
+    .card:hover, .post-card:hover { border-color: var(--card-border-hover); box-shadow: 0 2px 12px var(--card-shadow); }
+    .card + .card, .post-card + .post-card { margin-top: 16px; }
     .two-col { display: flex; gap: 64px; flex-wrap: wrap; }
     .main-col { flex: 1 1 400px; min-width: 280px; }
     .side-col { flex: 0 0 220px; min-width: 200px; }
@@ -127,10 +127,10 @@
       display: flex; justify-content: space-between; align-items: baseline;
       flex-wrap: wrap; gap: 8px; margin-bottom: 8px;
     }
-    .exp-role { font-size: 16px; font-weight: 600; }
+    .exp-role { font-size: 16px; font-weight: 600; color: var(--text); }
     .exp-period {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px; color: var(--text-faint); letter-spacing: 0.5px;
+      font-size: 11px; color: var(--text-faint); letter-spacing: 0.5px; white-space: nowrap;
     }
     .exp-company {
       font-family: 'JetBrains Mono', monospace;
@@ -168,13 +168,7 @@
     .stagger-4 { animation: fadeUp 0.5s ease 0.3s both; }
 
     /* Blog posts */
-    .post-card {
-      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 2px;
-      padding: 28px 32px; cursor: pointer;
-      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
-    }
-    .post-card:hover { border-color: var(--card-border-hover); box-shadow: 0 2px 12px var(--card-shadow); }
-    .post-card + .post-card { margin-top: 16px; }
+    .post-card { cursor: pointer; }
     .post-meta {
       display: flex; justify-content: space-between; align-items: baseline;
       flex-wrap: wrap; gap: 8px; margin-bottom: 8px;
@@ -342,7 +336,7 @@
             </p>
             <div class="subsection">
               <p class="section-label">Get in Touch</p>
-              <div class="card" style="margin-bottom:12px;">
+              <div class="card">
                 <p class="contact-label">Email</p>
                 <p class="contact-value"><a href="mailto:jtstewart@pm.me">jtstewart@pm.me</a></p>
               </div>
