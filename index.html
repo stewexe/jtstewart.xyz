@@ -4,7 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jordan Stewart</title>
-  <meta name="description" content="Jordan Stewart - IT Engineer at Aerostar. Blog, projects, and CV.">
+  <meta name="description" content="Jordan Stewart - IT Engineer II at TCOM L.P. Blog, projects, and CV.">
+  <meta property="og:title" content="Jordan Stewart">
+  <meta property="og:description" content="IT Engineer II at TCOM L.P. — infrastructure, identity, cloud, and aerospace defense.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jtstewart.xyz">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='sans-serif'>JS</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -166,6 +171,7 @@
     .stagger-2 { animation: fadeUp 0.5s ease 0.1s both; }
     .stagger-3 { animation: fadeUp 0.5s ease 0.2s both; }
     .stagger-4 { animation: fadeUp 0.5s ease 0.3s both; }
+    .stagger-5 { animation: fadeUp 0.5s ease 0.4s both; }
 
     /* Blog posts */
     .post-card { cursor: pointer; }
@@ -231,6 +237,14 @@
       transition: color 0.3s; line-height: 1;
     }
     .theme-toggle:hover { color: var(--text); }
+
+    @media print {
+      .nav, .footer, .theme-toggle { display: none; }
+      .page { display: block !important; }
+      .container { padding: 0; }
+      .card, .post-card { box-shadow: none; border-color: #ccc; }
+      body { color: #000; background: #fff; }
+    }
   </style>
 </head>
 <body>
@@ -238,7 +252,7 @@
     <header class="header">
       <div class="header-left" id="js-header-home">
         <h1 class="name">Jordan Stewart</h1>
-        <p class="subtitle">IT Engineer &mdash; TCOM L.P.</p>
+        <p class="subtitle">IT Engineer II &mdash; TCOM L.P.</p>
       </div>
       <nav class="nav" id="js-nav">
         <button class="nav-link active" data-page="page-home">Home</button>
@@ -252,29 +266,29 @@
     <main class="content">
 
       <section id="page-home" class="page active">
-        <div class="about-grid">
-          <div class="about-main">
-            <p class="section-label">About Me</p>
-            <p class="body-text">
-               I'm Jordan — I'm currently an IT engineer at a company called TCOM, where I design, engineer and manage IT infrastructure that supports the company's effots in the aerospace and defence space. My work focuses on hybrid and cloud infrastructure, identity governance and management, cloud and hybrid application management, and making sure systems meet resiliance standards for DoD contracting.
-            </p>
-            <p class="body-text">
-              Before TCOM, I've worked in the biopharma and education space in various IT support and engineering roles.
-            </p>
-            <p class="body-text">
-             I earned my Bachelors in Computer and Network Security from Dakota State University in Madison, South Dakota.
-            </p>
-            <div class="subsection">
-              <p class="section-label">Get in Touch</p>
-              <div class="card">
-                <p class="contact-label">Email</p>
-                <p class="contact-value"><a href="mailto:jtstewart@pm.me">jtstewart@pm.me</a></p>
-              </div>
-              <div class="card">
-                <p class="contact-label">LinkedIn</p>
-                <p class="contact-value"><a href="https://linkedin.com/in/jordan-stewart-40386b96" target="_blank" rel="noopener">linkedin.com/in/jordan-stewart-40386b96</a></p>
-              </div>
-            </div>
+        <p class="section-label">About Me</p>
+        <p class="body-text">
+          I'm Jordan — I'm currently an IT engineer at a company called TCOM, where I design, engineer and manage IT infrastructure that supports the company's efforts in the aerospace and defense space. My work focuses on hybrid and cloud infrastructure, identity governance and management, cloud and hybrid application management, and making sure systems meet resilience standards for DoD contracting.
+        </p>
+        <p class="body-text">
+          Before TCOM, I've worked in the biopharma and education space in various IT support and engineering roles.
+        </p>
+        <p class="body-text">
+          I earned my Bachelor's in Computer and Network Security from Dakota State University in Madison, South Dakota.
+        </p>
+        <div class="subsection">
+          <p class="section-label">Get in Touch</p>
+          <div class="card">
+            <p class="contact-label">Email</p>
+            <p class="contact-value"><a href="mailto:jtstewart@pm.me">jtstewart@pm.me</a></p>
+          </div>
+          <div class="card">
+            <p class="contact-label">LinkedIn</p>
+            <p class="contact-value"><a href="https://linkedin.com/in/jordan-stewart-40386b96" target="_blank" rel="noopener">linkedin.com/in/jordan-stewart-40386b96</a></p>
+          </div>
+          <div class="card">
+            <p class="contact-label">GitHub</p>
+            <p class="contact-value"><a href="https://github.com/stewexe" target="_blank" rel="noopener">github.com/stewexe</a></p>
           </div>
         </div>
       </section>
@@ -285,7 +299,7 @@
             <p class="section-label">Profile</p>
             <p class="body-text">
               Proven IT infrastructure engineer with over 10 years of experience spanning
-              higher education, biothech, and aerospace and defense. I like to build things that connect, protect, and save lives.
+              higher education, biotech, and aerospace and defense. I like to build things that connect, protect, and save lives.
             </p>
             <div class="subsection">
               <p class="section-label">Experience</p>
@@ -295,6 +309,7 @@
                   <span class="exp-period">Apr 2026 &mdash; Present</span>
                 </div>
                 <p class="exp-company">TCOM L.P. &middot; Columbia, MD</p>
+                <p class="exp-details">Designing and managing IT infrastructure supporting aerospace and defense operations. Focused on hybrid and cloud architecture, identity governance, and maintaining CMMC compliance for DoD contracting.</p>
               </div>
               <div class="card stagger-2">
                 <div class="exp-header">
@@ -302,6 +317,7 @@
                   <span class="exp-period">Oct 2022 &mdash; Mar 2026</span>
                 </div>
                 <p class="exp-company">Aerostar International, Inc. &middot; Sioux Falls, SD</p>
+                <p class="exp-details">Built and maintained hybrid cloud infrastructure across Azure and on-premises environments. Managed Microsoft 365 and identity platforms, led CMMC compliance initiatives, and supported IT service delivery for aerospace and defense programs.</p>
               </div>
               <div class="card stagger-3">
                 <div class="exp-header">
@@ -309,6 +325,7 @@
                   <span class="exp-period">Mar 2022 &mdash; Aug 2022</span>
                 </div>
                 <p class="exp-company">SAb Biotherapeutics &middot; Sioux Falls, SD</p>
+                <p class="exp-details">Managed IT infrastructure and systems in a biopharmaceutical environment, supporting research and corporate operations.</p>
               </div>
               <div class="card stagger-4">
                 <div class="exp-header">
@@ -316,13 +333,15 @@
                   <span class="exp-period">Oct 2019 &mdash; Mar 2022</span>
                 </div>
                 <p class="exp-company">Dakota State University &middot; Madison, SD</p>
+                <p class="exp-details">Administered the university's learning management system and cloud platforms. Managed integrations, user provisioning, and system reliability for faculty and students.</p>
               </div>
-              <div class="card stagger-4">
+              <div class="card stagger-5">
                 <div class="exp-header">
                   <span class="exp-role">Sr. Computer Support Specialist</span>
                   <span class="exp-period">Aug 2015 &mdash; Oct 2019</span>
                 </div>
                 <p class="exp-company">Dakota State University &middot; Madison, SD</p>
+                <p class="exp-details">Provided advanced technical support across campus, troubleshooting hardware, software, and network issues. Supported Windows Server infrastructure and endpoint management.</p>
               </div>
             </div>
             <div class="subsection">
@@ -352,6 +371,7 @@
           <div class="exp-header">
             <span class="exp-role">Kalshi Weather Betting Bot (Dusty Davis)</span>
           </div>
+          <p class="exp-company">Automated Trading &middot; Weather Markets &middot; Claude AI</p>
           <p class="exp-details">
             An automated trading bot that participates in temperature prediction markets on Kalshi. The bot pulls live weather data from multiple independent forecasting sources, builds a probabilistic model of what the day's high temperature will be across US markets on Kalshi. It tracks its own accuracy over time, corrects for systematic forecast biases it discovers, and uses a Claude-powered AI reasoning layer to sanity-check its signals before making bets.
           </p>
@@ -381,13 +401,6 @@
     // ───────────────────────────────────────────────
 
     var posts = [
-      
-      {
-        title: "Post 002 - Dogs Catching Cars",
-        date: "2026-06-24",
-        body: "<p>This is a test of a new blog post...</p>"
-      },
-    
       {
         title: "Post 001 - Hello, World",
         date: "2026-02-21",
@@ -482,18 +495,21 @@
       });
 
       // Navigation
-      function show(id) {
+      function show(id, updateHash) {
         for (var i = 0; i < pages.length; i++) {
           pages[i].className = pages[i].id === id ? 'page active' : 'page';
         }
         for (var j = 0; j < links.length; j++) {
           links[j].className = links[j].getAttribute('data-page') === id ? 'nav-link active' : 'nav-link';
         }
-        // Collapse any open posts when navigating away and back
         var expanded = document.querySelectorAll('.post-card.expanded');
         for (var k = 0; k < expanded.length; k++) {
           expanded[k].classList.remove('expanded');
           expanded[k].querySelector('.post-toggle').textContent = 'Read more';
+        }
+        if (updateHash !== false) {
+          var hash = id.replace('page-', '');
+          history.replaceState(null, '', hash === 'home' ? '/' : '#' + hash);
         }
       }
 
@@ -507,6 +523,16 @@
       document.getElementById('js-header-home').addEventListener('click', function() {
         show('page-home');
       });
+
+      // Handle hash on load and back/forward
+      function loadFromHash() {
+        var hash = location.hash.replace('#', '');
+        if (hash && document.getElementById('page-' + hash)) {
+          show('page-' + hash, false);
+        }
+      }
+      loadFromHash();
+      window.addEventListener('hashchange', loadFromHash);
 
       renderPosts();
     })();
