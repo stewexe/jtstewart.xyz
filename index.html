@@ -365,7 +365,6 @@
             In simple terms, a robot that bets money on the internet for me for beer money.
           </p>
         </div>
-        <div id="js-projects"></div>
       </section>
 
       <section id="page-blog" class="page">
@@ -386,24 +385,6 @@
     //  Each post needs: title, date, body (supports HTML).
     //  The preview is auto-generated from the first ~160 chars.
     // ───────────────────────────────────────────────
-    // ───────────────────────────────────────────────
-    //  PROJECTS — Add new projects to the top of this array.
-    //  Each project needs: title, description.
-    //  Optional: subtitle (shown under title).
-    // ───────────────────────────────────────────────
-    var projects = [
-      {
-        title: "Kalshi Betting Bot (Dusty Davis)",
-        subtitle: "Automated Trading \u00b7 Weather Markets \u00b7 Claude AI",
-        description: "Automated trading bot that participates in temperature prediction markets on Kalshi. It pulls live weather data from multiple independent forecasting sources, builds a probabilistic model of what the day\u2019s high temperature will be across six US cities, and looks for cases where its estimate meaningfully disagrees with what the market has priced in. It tracks its own accuracy over time, corrects for systematic forecast biases it discovers, and uses a Claude-powered AI reasoning layer to sanity-check its signals before committing capital. In simpler terms, it\u2019s a robot that bets my money on the internet for beer money."
-      }
-      // To add a new project, copy the template below and paste it above:
-      // {
-      //   title: "Project Title",
-      //   subtitle: "Optional subtitle",
-      //   description: "Description of the project."
-      // },
-    ];
 
     var posts = [
       {
@@ -457,27 +438,6 @@
         tmp.innerHTML = html;
         var text = tmp.textContent || tmp.innerText || '';
         return text.length > (max || 160) ? text.substring(0, max || 160).trim() + '…' : text;
-      }
-
-      // Render projects
-      function renderProjects() {
-        var container = document.getElementById('js-projects');
-        if (!projects.length) {
-          container.innerHTML = '<p class="body-text post-empty">Nothing here yet — check back soon.</p>';
-          return;
-        }
-        var html = '';
-        for (var i = 0; i < projects.length; i++) {
-          var proj = projects[i];
-          html += '<div class="card">' +
-            '<div class="exp-header">' +
-              '<span class="exp-role">' + proj.title + '</span>' +
-            '</div>' +
-            (proj.subtitle ? '<p class="exp-company">' + proj.subtitle + '</p>' : '') +
-            '<p class="exp-details">' + proj.description + '</p>' +
-          '</div>';
-        }
-        container.innerHTML = html;
       }
 
       // Render posts
@@ -547,7 +507,6 @@
         show('page-home');
       });
 
-      renderProjects();
       renderPosts();
     })();
   </script>
